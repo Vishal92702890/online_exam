@@ -1,0 +1,32 @@
+SMAP
+admin_005fviewAllQuestion_jsp.java
+JSP
+*S JSP
+*F
++ 0 admin_viewAllQuestion.jsp
+admin_viewAllQuestion.jsp
++ 1 header.html
+header.html
++ 2 main_menu.html
+main_menu.html
+*L
+5,13:52
+18:65,10
+19:75
+1#1,10:76
+19#0,2:86
+1#2,7:88
+20#0,3:95
+23,3:99
+25,14:102
+39,3:117
+41,2:120
+43,7:122,3
+50,6:143
+56:149,3
+57:152
+58:153,3
+59,3:156
+62:159,3
+63,6:162
+*E

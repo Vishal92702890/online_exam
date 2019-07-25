@@ -1,0 +1,433 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import com.kulchuri.exam.question.QuestionDao;
+import com.kulchuri.exam.question.QuestionDto;
+import java.util.ArrayList;
+
+public final class studentExam_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/header.html");
+  }
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n");
+      out.write("        <meta name=\"keywords\" content=\"Economic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, \n");
+      out.write("              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design\" />\n");
+      out.write("        <link href=\"css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />\n");
+      out.write("        <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/jquery-2.1.4.min.js\"></script>\n");
+      out.write("        <link href=\"css/font-awesome.css\" rel=\"stylesheet\"> \n");
+      out.write("        <link href=\"//fonts.googleapis.com/css?family=Montserrat:400,700\" rel=\"stylesheet\">\n");
+      out.write("        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>\n");
+      out.write("        <script type=\"text/javascript\" src=\"../lib/jquery-1.11.2.min.js\"></script>\n");
+      out.write("        <script type=\"text/javascript\">\n");
+      out.write("            $(document).ready(\n");
+      out.write("                    function () {\n");
+      out.write("                        timeMnger();\n");
+      out.write("                        var queNo = 0;\n");
+      out.write("                        var Num_of_ques = $(\".questionContainer\").children(\".queContain\").length;\n");
+      out.write("                        for (var temp = 0; temp < Num_of_ques; temp++) {\n");
+      out.write("                            $(\".paper_col\").append(\"<span class='button'>\" + (temp + 1) + \"</span>\");\n");
+      out.write("                        }\n");
+      out.write("                        $(\".questionContainer\").children(\".queContain\").eq(0).fadeIn(1000);\n");
+      out.write("                        $(\".next\").click(function () {\n");
+      out.write("                            queNo++;\n");
+      out.write("                            $(\".questionContainer\").children(\".queContain\").fadeOut(1);\n");
+      out.write("                            $(\".questionContainer\").children(\".queContain\").eq(queNo).fadeIn(1000);\n");
+      out.write("                            if (queNo === (Num_of_ques - 1)) {\n");
+      out.write("                                $(this).fadeOut(1);\n");
+      out.write("                            } else {\n");
+      out.write("                                $(this).fadeIn(100);\n");
+      out.write("                                $(\".pre\").fadeIn(100);\n");
+      out.write("                            }\n");
+      out.write("                        });\n");
+      out.write("                        $(\".pre\").click(function () {\n");
+      out.write("                            queNo--;\n");
+      out.write("                            $(\".questionContainer\").children(\".queContain\").fadeOut(1);\n");
+      out.write("                            $(\".questionContainer\").children(\".queContain\").eq(queNo).fadeIn(300);\n");
+      out.write("                            if (queNo === 0) {\n");
+      out.write("                                $(this).hide();\n");
+      out.write("                            } else {\n");
+      out.write("                                $(this).fadeIn();\n");
+      out.write("                                $(\".next\").fadeIn();\n");
+      out.write("                            }\n");
+      out.write("                        });\n");
+      out.write("\n");
+      out.write("                        $(\"input\").click(function () {\n");
+      out.write("                            var ele = $(this).attr(\"queNo\");\n");
+      out.write("\n");
+      out.write("                            $(\".paper_col \").children(\".button\").each(function (index, ob) {\n");
+      out.write("                                if (ele == index)\n");
+      out.write("                                    $(ob).css(\"background-color\", \"#A7C942\");\n");
+      out.write("                                //$(this).css(\"background-color\",\"red\").;\n");
+      out.write("                            });\n");
+      out.write("\n");
+      out.write("                        });\n");
+      out.write("\n");
+      out.write("                        $(\".button\").click(function () {\n");
+      out.write("                            queNo = ($(this).html()) - 1;\n");
+      out.write("                            var qNo = $(this).html();\n");
+      out.write("                            $(\".queContain\").each(function (index, ele) {\n");
+      out.write("                                if (qNo == (index + 1)) {\n");
+      out.write("                                    $(\".queContain\").fadeOut(10);\n");
+      out.write("                                    $(ele).fadeIn(200);\n");
+      out.write("                                }\n");
+      out.write("                            });\n");
+      out.write("                            if (queNo === 0) {\n");
+      out.write("                                $(\".pre\").hide(100);\n");
+      out.write("                                $(\".next\").fadeIn(100);\n");
+      out.write("                            } else {\n");
+      out.write("                                if (queNo === (Num_of_ques - 1)) {\n");
+      out.write("                                    $(\".next\").fadeOut(100);\n");
+      out.write("                                    $(\".pre\").fadeIn(100);\n");
+      out.write("                                } else {\n");
+      out.write("                                    $(\".next\").fadeIn(100);\n");
+      out.write("                                    $(\".pre\").fadeIn(100);\n");
+      out.write("                                }\n");
+      out.write("                            }\n");
+      out.write("                        });\n");
+      out.write("                        $(\".reset\").click(function () {\n");
+      out.write("\n");
+      out.write("                            $(\".button\").each(function (index, ele) {\n");
+      out.write("                                if (index == queNo) {\n");
+      out.write("                                    $(ele).css(\"background-color\", \"#ddd\");\n");
+      out.write("                                }\n");
+      out.write("                            });\n");
+      out.write("\n");
+      out.write("                            $(\".quesopn input\").each(function (index, ele) {\n");
+      out.write("\n");
+      out.write("                                if ($(ele).attr(\"queNo\") == queNo) {\n");
+      out.write("                                    $(ele).removeAttr(\"checked\");\n");
+      out.write("                                }\n");
+      out.write("                            });\n");
+      out.write("                        });\n");
+      out.write("                    });\n");
+      out.write("            var totalTimeMinut = 12;\n");
+      out.write("            var totalTimeSecond = 60;\n");
+      out.write("            function timeMnger() {\n");
+      out.write("                $(\".examTime\").html(totalTimeMinut + \":\" + totalTimeSecond);\n");
+      out.write("                if (totalTimeSecond === 0) {\n");
+      out.write("                    if (totalTimeMinut === 0) {\n");
+      out.write("                        $(\".questionContainer\").hide();\n");
+      out.write("                        alert(\"Exam Over Your Exam is submited automatically\");\n");
+      out.write("\n");
+      out.write("                        document.examSheet.submit();\n");
+      out.write("                        return;\n");
+      out.write("                    }\n");
+      out.write("                    totalTimeMinut--;\n");
+      out.write("                    totalTimeSecond = 60;\n");
+      out.write("                }\n");
+      out.write("                totalTimeSecond--;\n");
+      out.write("                setTimeout(timeMnger, 1000);\n");
+      out.write("            }\n");
+      out.write("        </script>\n");
+      out.write("        <style type=\"text/css\">\n");
+      out.write("            .container{\n");
+      out.write("                min-height: 500px;\n");
+      out.write("                padding-left: 20x;\n");
+      out.write("            }\n");
+      out.write("            .container input[type=\"submit\"]{\n");
+      out.write("                padding: 2px;\n");
+      out.write("                margin-left: 10px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            pre{\n");
+      out.write("                font: 14px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n");
+      out.write("\n");
+      out.write("                letter-spacing: 1px;\n");
+      out.write("            }\n");
+      out.write("            .questionContainer{\n");
+      out.write("                min-height: 400px;\n");
+      out.write("                width: 850px;\n");
+      out.write("                padding: 2px 20px;\n");
+      out.write("\n");
+      out.write("                font: 14px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n");
+      out.write("\n");
+      out.write("                letter-spacing: 1px;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            .queContain{\n");
+      out.write("                width: 600px;\n");
+      out.write("                height: 350px;\n");
+      out.write("                overflow-y: auto;\n");
+      out.write("                display: none;\n");
+      out.write("                position: absolute;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            .queContain input{\n");
+      out.write("            }\n");
+      out.write("            .modForm{\n");
+      out.write("                width: 600px;\n");
+      out.write("            }\n");
+      out.write("            .timer{\n");
+      out.write("                height: 40px;\n");
+      out.write("                text-align: right;\n");
+      out.write("            }\n");
+      out.write("            .examTime{\n");
+      out.write("                font-size: 30px;\n");
+      out.write("            }\n");
+      out.write("            .quesopn{\n");
+      out.write("                list-style: none;\n");
+      out.write("                padding: 10px;\n");
+      out.write("            } \n");
+      out.write("            .quesopn li{\n");
+      out.write("                padding: 5px;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            .paperlink{\n");
+      out.write("\n");
+      out.write("                bottom: 0px;\n");
+      out.write("                width: 500px;\n");
+      out.write("                z-index: 100;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .paperlink div{\n");
+      out.write("                display: inline-block;\n");
+      out.write("                width: 100px;\n");
+      out.write("            }\n");
+      out.write("            .paperlink a{\n");
+      out.write("                margin-right: 40px;\n");
+      out.write("                background: activecaption;\n");
+      out.write("                padding: 3px 10px;\n");
+      out.write("                box-shadow: inset 0px 0px 5px #F9F9F9;\n");
+      out.write("                border-radius: 3px;\n");
+      out.write("                cursor: pointer;\n");
+      out.write("\n");
+      out.write("            }\n");
+      out.write("            .paperlink a:hover{\n");
+      out.write("                text-decoration: underline;\n");
+      out.write("                color: #98bf21;\n");
+      out.write("            }\n");
+      out.write("            .paper_col{\n");
+      out.write("                margin-top: 20px;\n");
+      out.write("                display: block;\n");
+      out.write("                width: 210px;\n");
+      out.write("                min-height: 100px;\n");
+      out.write("                background: #eee;\n");
+      out.write("                float: right;\n");
+      out.write("                border-radius: 5px;\n");
+      out.write("                padding: 10px;\n");
+      out.write("            }\n");
+      out.write("            .paper_col .button{\n");
+      out.write("                display: inline-block;\n");
+      out.write("                margin-right: 6px;\n");
+      out.write("                margin-bottom: 5px;\n");
+      out.write("                height: 28px;\n");
+      out.write("                width: 30px;\n");
+      out.write("                background: #ddd;\n");
+      out.write("                box-shadow: inset 0px 0px 5px 1px #000;\n");
+      out.write("                border-radius: 5px;\n");
+      out.write("                text-align: center;\n");
+      out.write("                padding: 0px 3px;\n");
+      out.write("                padding-top: 5px;\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("            .paper_col .button:hover{\n");
+      out.write("\n");
+      out.write("                background: #34f;\n");
+      out.write("                color: #fff;\n");
+      out.write("                box-shadow: inset 0px 0px 1px 1px aqua;\n");
+      out.write("                cursor: pointer;\n");
+      out.write("            }\n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("    <body style=\"background-color: wheat\">\n");
+      out.write("        ");
+      out.write("<table>\n");
+      out.write("    <tr>\n");
+      out.write("        <td>\n");
+      out.write("            <img src=\"images/logo_exam.png\" width=\"80\" height=\"80\">\n");
+      out.write("        </td>\n");
+      out.write("        <td>\n");
+      out.write("            <h1>Online Exam Application</h1>\n");
+      out.write("        </td>\n");
+      out.write("    </tr>\n");
+      out.write("</table>");
+      out.write("\n");
+      out.write("        ");
+      out.write("\n");
+      out.write("        ");
+
+            ArrayList<QuestionDto> al = (ArrayList<QuestionDto>) session.getAttribute("al");
+            if (al != null) {
+        
+      out.write("\n");
+      out.write("        <div class=\"pageContainer\">\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("\n");
+      out.write("                <form style=\"margin: 20px;\" class=\"modForm\" name=\"examSheet\" action=\"studentResult.jsp\" method=\"post\">\n");
+      out.write("                    <div class=\"questionContainer\"> \n");
+      out.write("                        <div class=\"timer\">Remaining Time <div class=\"examTime\"> </div>  </div>\n");
+      out.write("                        ");
+
+                            int i = 0;
+                            for (QuestionDto dto : al) {
+                                i++;
+                        
+      out.write("\n");
+      out.write("                        <div class=\"queContain\">\n");
+      out.write("                            <div style=\"margin: 5%\">\n");
+      out.write("                                <pre>\n");
+      out.write("                                    ");
+      out.print("Q:-" + i);
+      out.write("\n");
+      out.write("                                    ");
+      out.print(dto.getQuestion());
+      out.write("                                                                                                                                         \n");
+      out.write("                                <input type=\"hidden\" value=\"");
+      out.print(dto.getQid());
+      out.write("\" name=\"ques[");
+      out.print(dto.getQid());
+      out.write("]\"/>\n");
+      out.write("                                </pre>\n");
+      out.write("                            </div>\n");
+      out.write("                            <ul class=\"quesopn\">\n");
+      out.write("                                <li>\n");
+      out.write("                                    <label>A.</label>   \n");
+      out.write("                                    <input type=\"radio\"  value=\"A\" queNo=\"");
+      out.print(i - 1);
+      out.write("\" name=\"b[");
+      out.print(i - 1);
+      out.write("]\"/>\n");
+      out.write("                                    <label>");
+      out.print(dto.getOption1());
+      out.write("</label>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li> \n");
+      out.write("                                    <label>B.</label>\n");
+      out.write("                                    <input type=\"radio\"  value=\"B\" queNo=\"");
+      out.print(i - 1);
+      out.write("\" name=\"b[");
+      out.print(i - 1);
+      out.write("]\"/>\n");
+      out.write("                                    <label>");
+      out.print(dto.getOption2());
+      out.write("</label>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <label>C.</label>\n");
+      out.write("                                    <input type=\"radio\"  value=\"C\" queNo=\"");
+      out.print(i - 1);
+      out.write("\" name=\"b[");
+      out.print(i - 1);
+      out.write("]\"/>\n");
+      out.write("                                    <label>");
+      out.print(dto.getOption3());
+      out.write("</label>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <label>D.</label>\n");
+      out.write("                                    <input type=\"radio\"  value=\"D\" queNo=\"");
+      out.print(i - 1);
+      out.write("\" name=\"b[");
+      out.print(i - 1);
+      out.write("]\"/>\n");
+      out.write("                                    <label>");
+      out.print(dto.getOption4());
+      out.write("</label>\n");
+      out.write("                                </li>\n");
+      out.write("                                <li>\n");
+      out.write("                                    <input type=\"radio\" checked=\"\" style=\"display:none\"  value=\"none\" queNo=\"");
+      out.print(i - 1);
+      out.write("\" name=\"b[");
+      out.print(i - 1);
+      out.write("]\"/>\n");
+      out.write("                                </li>\n");
+      out.write("\n");
+      out.write("                            </ul> \n");
+      out.write("                        </div>\n");
+      out.write("                        ");
+
+                            }
+                        
+      out.write("\n");
+      out.write("                        <div class=\"paper_col\"> \n");
+      out.write("\n");
+      out.write("                        </div>  \n");
+      out.write("\n");
+      out.write("                        <div style=\"clear: both;\"> </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div style=\"clear: both;\"> </div>\n");
+      out.write("                    <div class=\"paperlink\">\n");
+      out.write("                        <div>   <a style=\"display: none\" class=\"pre\">Previous</a></div>\n");
+      out.write("                        <div>  &nbsp; </div>\n");
+      out.write("                        <div><a style=\"\" class=\"reset\" >Reset</a></div>\n");
+      out.write("                        <div><a class=\"next\">Next</a></div>\n");
+      out.write("                    </div><div style=\"clear:both\"> &nbsp;</div>\n");
+      out.write("                    <input type=\"submit\" value=\"Submit\" />\n");
+      out.write("                </form>\n");
+      out.write("                <br>\n");
+      out.write("            </div>\n");
+      out.write("        </div> \n");
+      out.write("\n");
+      out.write("        ");
+
+            } else {
+                response.sendRedirect("studentSelectSubject.jsp");
+            }
+        
+      out.write("\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
